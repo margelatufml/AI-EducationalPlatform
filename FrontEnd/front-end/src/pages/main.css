@@ -1,0 +1,11 @@
+.parallax {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.parallax-item {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.2s;
+}

@@ -1,0 +1,336 @@
+/* Define CSS variables */
+:root {
+  --outline: #392913;
+  --bodycolor: #654236;
+  --facehighlight: #e1d2c4;
+  --shadow: #7a6f63;
+  --white: #ffffff;
+  --water: #82b3a9;
+}
+
+/* Reset default styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Ripple animation */
+.ripple {
+  position: absolute;
+  width: 7.81vw;
+  height: 7.81vw;
+  border: 0.26vw solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 1.04vw rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  left: 0.1vw;
+  top: 1.56vw;
+  animation: ripple 4s linear infinite;
+}
+
+/* Container styling */
+.container {
+  width: 8.33vw;
+  height: 13.02vw;
+  position: relative;
+  animation: circular 24s linear infinite; /* Increased rotation duration by 20% */
+  margin-top: 2rem; /* Added margin-top to move it down */
+}
+
+/* Head styling */
+.head {
+  position: absolute;
+  left: 0.47vw;
+  width: 6.77vw;
+  height: 6.25vw;
+  border: 0.31vw solid var(--outline);
+  border-radius: 45%;
+  background: var(--bodycolor);
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* Light circle styling */
+.lightcircle {
+  width: 8.33vw;
+  height: 6.25vw;
+  background: var(--facehighlight);
+  border-radius: 100%;
+  position: relative;
+  top: 3.91vw;
+  left: -0.78vw;
+}
+
+/* Body styling */
+.body {
+  position: absolute;
+  left: 1.3vw;
+  top: 3.65vw;
+  width: 5.21vw;
+  height: 6.77vw;
+  border: 0.31vw solid var(--outline);
+  border-radius: 45%;
+  background: var(--bodycolor);
+  z-index: 2;
+}
+
+/* Tail styling */
+.tail {
+  position: absolute;
+  left: 3.39vw;
+  top: 8.85vw;
+  width: 1.3vw;
+  height: 3.65vw;
+  border: 0.31vw solid var(--outline);
+  border-radius: 50%;
+  background: var(--bodycolor);
+  z-index: 1;
+  animation: paddle 3s ease infinite;
+}
+
+/* Ear styling */
+.earLeft,
+.earRight {
+  width: 1.3vw;
+  height: 1.3vw;
+  border: 0.31vw solid var(--outline);
+  background: var(--bodycolor);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+}
+
+.earLeft {
+  top: 0.78vw;
+}
+
+.earRight {
+  transform: translateX(6.4vw);
+  top: 0.78vw;
+}
+
+/* Ear line styling */
+.earlineLeft,
+.earlineRight {
+  width: 0.05vw;
+  height: 0.52vw;
+  border: solid 0.05vw var(--outline);
+  border-radius: 50%;
+  background: var(--outline);
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+.earlineLeft {
+  left: 0.47vw;
+  top: 0.26vw;
+}
+
+.earlineRight {
+  transform: rotate(45deg);
+  left: 0.62vw;
+  top: 0.26vw;
+}
+
+/* Face styling */
+.face {
+  width: 4.17vw;
+  height: 2.08vw;
+  position: absolute;
+  left: 1.3vw;
+  top: 3.39vw;
+}
+
+/* Eye styling */
+.eyeLeft,
+.eyeRight {
+  height: 1.3vw;
+  width: 0.68vw;
+  background: var(--outline);
+  border-radius: 50%;
+  position: absolute;
+  animation: blinking 6s linear infinite;
+}
+
+.eyedot {
+  width: 0.31vw;
+  height: 0.31vw;
+  border-radius: 50%;
+  background: var(--white);
+  position: absolute;
+  left: 0.21vw;
+  top: 0.68vw;
+  animation: blinking 6s ease-in-out infinite;
+}
+
+.eyeRight {
+  right: 0;
+}
+
+/* Nose styling */
+.nose {
+  width: 1.3vw;
+  height: 0.78vw;
+  position: absolute;
+  top: 0.62vw;
+  left: 1.56vw;
+  background: var(--outline);
+  border-radius: 2.08vw 2.08vw 1.04vw 1.04vw;
+}
+
+.nosedot {
+  background: var(--white);
+  width: 0.52vw;
+  height: 0.1vw;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.16vw;
+  left: 0.31vw;
+}
+
+/* Smile styling */
+.smile {
+  width: 1.3vw;
+  height: 0.68vw;
+  position: absolute;
+  top: 1.3vw;
+  left: 1.61vw;
+}
+
+.curve1,
+.curve2 {
+  width: 1.04vw;
+  height: 1.04vw;
+  border-radius: 50%;
+  box-shadow: 0.1vw 0.1vw 0 0 var(--outline);
+  position: absolute;
+  top: -0.52vw;
+  left: -0.52vw;
+}
+
+.curve2 {
+  box-shadow: -0.1vw 0.1vw 0 0 var(--outline);
+  transform: translateX(1.04vw);
+}
+
+/* Arm styling */
+.armLeft,
+.armRight {
+  position: absolute;
+  width: 0.78vw;
+  height: 1.3vw;
+  border-top: solid 0.31vw transparent;
+  border-left: solid 0.31vw var(--outline);
+  border-right: solid 0.31vw var(--outline);
+  border-bottom: solid 0.31vw var(--outline);
+  border-radius: 40%;
+}
+
+.armLeft {
+  left: 0.52vw;
+  top: 2.6vw;
+  transform: rotate(-45deg);
+  box-shadow: 0 0.16vw var(--shadow);
+}
+
+.armRight {
+  left: 3.39vw;
+  top: 2.6vw;
+  transform: rotate(45deg);
+  box-shadow: 0 0.16vw var(--shadow);
+}
+
+/* Leg styling */
+.legLeft,
+.legRight {
+  position: absolute;
+  width: 1.04vw;
+  height: 1.82vw;
+  background: var(--shadow);
+  border-top: solid 0.31vw var(--outline);
+  border-left: solid 0.31vw var(--outline);
+  border-right: solid 0.31vw var(--outline);
+  border-radius: 50%;
+}
+
+.legLeft {
+  top: 4.64vw;
+  left: 0.78vw;
+  transform: rotate(-15deg);
+}
+
+.legRight {
+  top: 4.64vw;
+  left: 2.86vw;
+  transform: rotate(15deg);
+}
+
+/* Keyframe animations */
+@keyframes blinking {
+  0%,
+  20%,
+  25%,
+  30%,
+  35%,
+  40%,
+  45%,
+  48%,
+  50%,
+  55%,
+  60%,
+  65%,
+  70%,
+  75%,
+  80%,
+  85%,
+  90%,
+  95%,
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: scaleX(1.3) scaleY(0.1);
+  }
+}
+
+@keyframes paddle {
+  0%,
+  100% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes circular {
+  0% {
+    transform: rotate(432deg) translateX(5.21vw); /* Increased rotation by 20% */
+  }
+  100% {
+    transform: rotate(0deg) translateX(5.21vw);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  25% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+.container {
+  margin-right: 10vw;
+}

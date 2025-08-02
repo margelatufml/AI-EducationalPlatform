@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: db
+    ports:
+      - "3306:3306"
+    volumes:
+      - my_custom_volume:/var/lib/mysql
+volumes:
+  my_custom_volume:
