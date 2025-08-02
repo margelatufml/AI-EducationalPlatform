@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: populate-dummy-data
+spec:
+  template:
+    spec:
+      containers:
+      - name: populate-dummy-data
+        image: python:3.11-slim
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            pip install mysql-connector-python && python /scripts/populate-dummy-data.py
+        volumeMounts:
+        - name: script-volume
+          mountPath: /scripts
+      restartPolicy: Never
+      volumes:
+      - name: script-volume
+        configMap:
+          name: populate-dummy-data-script 
