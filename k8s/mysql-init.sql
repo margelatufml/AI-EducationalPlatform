@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS exercises (
+    id BINARY(16) PRIMARY KEY,
+    chapterId BINARY(16),
+    content TEXT,
+    answer TEXT,
+    points INT,
+    type VARCHAR(255),
+    -- Add any other fields as needed
+    FOREIGN KEY (chapterId) REFERENCES chapters(id)
+); 

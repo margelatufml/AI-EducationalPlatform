@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: intelecta-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: intelecta.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/(.*)
+        backend:
+          service:
+            name: backend
+            port:
+              number: 8080
+      - pathType: Prefix
+        path: /(.*)
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80 
